@@ -24,6 +24,7 @@ const Navbar = defineComponent({
 nav {
   background-color: #f2f2f2;
   padding: 10px;
+  border-radius: 10px;
 }
 
 ul {
