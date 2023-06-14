@@ -1,3 +1,23 @@
+<template>
+  <div>
+    <div v-if="isLoading">Cargando...</div>
+    <div v-else-if="error">Ha ocurrido un error: {{ error }}</div>
+    <div v-else>
+      <!-- Mostrar los datos de la respuesta de la API aquí -->
+
+      <div class="contenedor">
+        <div class="card" v-for="item in responseData" :key="item.id">
+          <div>{{ item.name }}</div>
+
+          <!-- <img :src="item.image_background" /> -->
+
+          <div>total games: {{ item.games.length }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
 <script setup>
 import { ref, onMounted } from "vue";
 import axios from "axios";
@@ -22,23 +42,6 @@ const fetchData = async () => {
 
 onMounted(fetchData);
 </script>
-
-<template>
-  <div>
-    <div v-if="isLoading">Cargando...</div>
-    <div v-else-if="error">Ha ocurrido un error: {{ error }}</div>
-    <div v-else>
-      <!-- Mostrar los datos de la respuesta de la API aquí -->
-      <div class="contenedor">
-        <div class="card" v-for="item in responseData" :key="item.id">
-          <div>{{ item.name }}</div>
-          <img :src="item.image_background" />
-          <div>total games: {{ item.games.length }}</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</template>
 
 <style scoped>
 .contenedor {
