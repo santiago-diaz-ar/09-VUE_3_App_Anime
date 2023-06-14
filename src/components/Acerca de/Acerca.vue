@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3>COMPONENTE HOME EN DESARROLLO</h3>
+    <h3>Acerca de en Desarrollo</h3>
   </div>
 </template>
 
