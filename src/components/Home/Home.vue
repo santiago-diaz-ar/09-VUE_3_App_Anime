@@ -44,18 +44,18 @@ onMounted(fetchData);
 .contenedor {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 .card {
   text-align: center;
- 
+
   margin: 20px;
   border-radius: 5px;
   background-color: black;
   color: white;
 }
 img {
-  width: 250px;
+  width: 230px;
   height: 250px;
   object-fit: cover;
   border-radius: 2px;

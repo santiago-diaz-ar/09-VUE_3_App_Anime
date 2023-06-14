@@ -18,8 +18,11 @@
 /* Estilos de la barra de navegación */
 nav {
   background-color: #f2f2f2;
-  padding: 10px;
   border-radius: 10px;
+  margin-top: 10px;
+  text-align: center;
+  padding-top: 25px;
+  padding-bottom: 15px;
 }
 
 ul {
@@ -27,6 +30,7 @@ ul {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-right: 30px;
 }
 
 li {
