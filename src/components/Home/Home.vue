@@ -29,21 +29,35 @@ onMounted(fetchData);
     <div v-else-if="error">Ha ocurrido un error: {{ error }}</div>
     <div v-else>
       <!-- Mostrar los datos de la respuesta de la API aquí -->
-
-      <div>
-        <div v-for="item in responseData" :key="item.id">{{ item.name }}</div>
+      <div class="contenedor">
+        <div class="card" v-for="item in responseData" :key="item.id">
+          <div>{{ item.name }}</div>
+          <img :src="item.image_background" />
+          <div>total games: {{ item.games.length }}</div>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <style scoped>
-div {
-  text-align: center;
-  border: 1px solid red;
+.contenedor {
   display: flex;
   flex-wrap: wrap;
-  width: 70px;
-  height: 70px;
+  justify-content: space-around;
+}
+.card {
+  text-align: center;
+ 
+  margin: 20px;
+  border-radius: 5px;
+  background-color: black;
+  color: white;
+}
+img {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 2px;
 }
 </style>
