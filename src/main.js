@@ -6,6 +6,7 @@ import Home from "./components/Home/Home.vue";
 import Favorite from "./components/Favoritos/Favoritos.vue";
 import Acerca from "./components/Acerca de/Acerca.vue";
 import Sesion from "./components/iniciar sesion/Sesion.vue";
+import Detalle from "./components/Detalle/Detalle.vue";
 
 const router = createRouter({
   history: createWebHistory(),
@@ -14,6 +15,7 @@ const router = createRouter({
     { path: "/favoritos", component: Favorite },
     { path: "/acerca", component: Acerca },
     { path: "/sesion", component: Sesion },
+    { name: "detalle", path: "/detalle/:id", component: Detalle },
   ],
 });
 

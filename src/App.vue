@@ -14,9 +14,7 @@
   </main>
 </template>
 
-<script setup>
-import Home from "./components/Home/Home.vue";
-</script>
+<script setup></script>
 
 <style scoped>
 /* Estilos de la barra de navegación */

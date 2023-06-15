@@ -1,27 +1,12 @@
 <template>
-  <div></div>
+  <div><h1>EN DESARROLLO</h1></div>
+
+  <router-link :to="{ name: 'detalle', params: { id: 123 } }"
+    >Detalle</router-link
+  >
 </template>
 
-<script setup>
-import { reactive, onMounted } from "vue";
-import axios from "axios";
-
-const state = reactive({
-  responseData: null,
-});
-
-onMounted(async () => {
-  try {
-    const response = await axios.get(
-      "https://kitsu.io/api/edge/trending/anime?limit=10"
-    );
-    state.responseData = response.data;
-    console.log(state.responseData);
-  } catch (error) {
-    console.error(error);
-  }
-});
-</script>
+<script setup></script>
 
 <style scoped>
 .contenedor {
