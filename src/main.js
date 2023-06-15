@@ -11,9 +11,8 @@ import Detalle from "./components/Detalle/Detalle.vue";
 const router = createRouter({
   history: createWebHistory(),
   routes: [
-    { name: "general", path: "/general", component: Home },
-    { path: "/favoritos", component: Favorite },
-    { path: "/acerca", component: Acerca },
+    { name: "general", path: "/", component: Home },
+    { name: "acerca", path: "/acerca", component: Acerca },
     { path: "/sesion", component: Sesion },
     { name: "detalle", path: "/detalle/:id", component: Detalle },
   ],

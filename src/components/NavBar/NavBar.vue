@@ -1,31 +1,18 @@
 <template>
-  <!--   <header>
+  <header>
     <nav>
       <ul>
         <router-link :to="{ name: 'general' }">Informacion general</router-link>
-        
-        <router-link to="/acerca">Acerca de</router-link>
+        <!--    <router-link to="/favoritos">Favoritos</router-link> -->
+        <router-link :to="{ name: 'acerca' }">Acerca de</router-link>
         <router-link to="/sesion">Modificar datos </router-link>
       </ul>
     </nav>
-  </header> -->
-  <Nav></Nav>
-
-  <router-view></router-view>
+  </header>
+  <main></main>
 </template>
 
-<script>
-import Home from "./components/Home/Home.vue";
-import Nav from "./components/NavBar/NavBar.vue";
-
-export default {
-  name: "App",
-  components: {
-    Home,
-    Nav,
-  },
-};
-</script>
+<script></script>
 <style scoped>
 /* Estilos de la barra de navegación */
 nav {
