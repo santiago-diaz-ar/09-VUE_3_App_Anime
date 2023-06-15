@@ -17,12 +17,23 @@
 <script>
 import Home from "./components/Home/Home.vue";
 import Nav from "./components/NavBar/NavBar.vue";
+import prueba from "./components/Helpers/animedata";
 
 export default {
   name: "App",
+  async mounted() {
+    if (this.animes == 0) {
+      this.animes = await prueba();
+    }
+  },
   components: {
     Home,
     Nav,
+  },
+  data() {
+    return {
+      animes: [],
+    };
   },
 };
 </script>

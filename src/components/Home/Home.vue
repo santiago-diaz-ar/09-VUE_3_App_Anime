@@ -1,10 +1,6 @@
 <template>
   <div class="contenedor">
-    <div p v-for="a in animes" :key="a" class="card">
-      <!--   <button onClick="{handleFavorite}" className="{s.corazon}">❤️</button>
-
-      <button onClick="{handleFavorite}" className="{s.corazon}">🤍</button>
- -->
+    <div p v-for="a in $root.animes" :key="a" class="card">
       <router-link
         :to="{ name: 'detalle', params: { id: JSON.stringify(a) } }"
         >{{ a.name }}</router-link
@@ -14,30 +10,7 @@
   </div>
 </template>
 
-<script>
-import prueba from "../Helpers/animedata";
-
-export default {
-  async mounted() {
-    this.animes = await prueba();
-  },
-  data() {
-    return {
-      animes: [],
-    };
-  },
-
-  //ya no es necesario el methods aca por que me importa la funcion desde otro archivo
-  /*  methods: {
-    getAnime: async function () {
-      this.animes = await fetch(
-        "https://kitsu.io/api/edge/trending/anime?limit=2"
-      ).then((res) => res.json());
-      console.log(this.animes);
-    },
-  }, */
-};
-</script>
+<script></script>
 
 <style scoped>
 .contenedor {
