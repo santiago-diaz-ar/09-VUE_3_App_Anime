@@ -5,14 +5,38 @@
         <router-link :to="{ name: 'general' }">Informacion general</router-link>
         <!--    <router-link to="/favoritos">Favoritos</router-link> -->
         <router-link :to="{ name: 'acerca' }">Acerca de</router-link>
-        <router-link to="/sesion">Modificar datos </router-link>
+
+        <div>
+          <p v-if="showText" class="condicion">
+            <router-link to="/sesion">Iniciar sesion </router-link>
+          </p>
+          <p v-else>
+            <router-link to="/sesion">Javier santiago diaz arcila </router-link>
+          </p>
+        </div>
       </ul>
     </nav>
   </header>
   <main></main>
 </template>
 
-<script></script>
+<script>
+import { ref } from "vue";
+export default {
+  setup() {
+    const showText = ref(true);
+
+    const toggleText = () => {
+      showText.value = !showText.value;
+    };
+
+    return {
+      showText,
+      toggleText,
+    };
+  },
+};
+</script>
 <style scoped>
 /* Estilos de la barra de navegación */
 nav {
@@ -40,5 +64,7 @@ a {
   text-decoration: none;
   color: #333;
   font-weight: bold;
+}
+.condicion {
 }
 </style>
