@@ -1,26 +1,19 @@
-import axios from "axios";
-
 const getAnime = async () => {
-  try {
-    const response = await axios.get(
-      '"https://kitsu.io/api/edge/trending/anime?limit=10"'
-    );
+  let animeArray = await fetch(
+    "https://kitsu.io/api/edge/trending/anime?limit=8"
+  ).then((res) => res.json());
 
-    let datos = [];
+  let animeObj = [];
 
-    response.data.forEach((anime) => {
-      datos.push({
-        id: anime.id,
-        attributes: anime.attributes,
-        image: anime.posterImage.original,
-      });
+  animeArray.data.forEach((anime) => {
+    animeObj.push({
+      id: anime.id,
+      name: anime.attributes.slug,
+      image: anime.attributes.posterImage.original,
+      description: anime.attributes.description,
     });
-
-    return datos;
-  } catch (error) {
-    console.error(error);
-    throw error;
-  }
+  });
+  return animeObj;
 };
 
 export default getAnime;

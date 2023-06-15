@@ -1,12 +1,37 @@
 <template>
-  <div><h1>EN DESARROLLO</h1></div>
-
-  <router-link :to="{ name: 'detalle', params: { id: 123 } }"
-    >Detalle</router-link
-  >
+  <div class="contenedor">
+    <div p v-for="a in animes" :key="a" class="card">
+      <router-link
+        :to="{ name: 'detalle', params: { id: JSON.stringify(a) } }"
+        >{{ a.name }}</router-link
+      >
+      <img :src="a.image" alt="image" />
+    </div>
+  </div>
 </template>
 
-<script setup></script>
+<script>
+import prueba from "../Helpers/animedata";
+export default {
+  async mounted() {
+    this.animes = await prueba();
+  },
+  data() {
+    return {
+      animes: [],
+    };
+  },
+  //ya no es necesario el methods aca por que me importa la funcion desde otro archivo
+  /*  methods: {
+    getAnime: async function () {
+      this.animes = await fetch(
+        "https://kitsu.io/api/edge/trending/anime?limit=2"
+      ).then((res) => res.json());
+      console.log(this.animes);
+    },
+  }, */
+};
+</script>
 
 <style scoped>
 .contenedor {
