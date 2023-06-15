@@ -1,5 +1,3 @@
-<script setup></script>
-
 <template>
   <header>
     <nav>
@@ -11,8 +9,14 @@
       </ul>
     </nav>
   </header>
-  <main><router-view></router-view></main>
+  <main>
+    <router-view></router-view>
+  </main>
 </template>
+
+<script setup>
+import Home from "./components/Home/Home.vue";
+</script>
 
 <style scoped>
 /* Estilos de la barra de navegación */

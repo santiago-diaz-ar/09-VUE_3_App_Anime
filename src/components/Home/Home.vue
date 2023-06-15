@@ -1,46 +1,26 @@
 <template>
-  <div>
-    <div v-if="isLoading">Cargando...</div>
-    <div v-else-if="error">Ha ocurrido un error: {{ error }}</div>
-    <div v-else>
-      <!-- Mostrar los datos de la respuesta de la API aquí -->
-
-      <div class="contenedor">
-        <div class="card" v-for="item in responseData" :key="item.id">
-          <div>{{ item.name }}</div>
-
-          <!-- <img :src="item.image_background" /> -->
-
-          <div>total games: {{ item.games.length }}</div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <div></div>
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
+import { reactive, onMounted } from "vue";
 import axios from "axios";
 
-const responseData = ref(null);
-const isLoading = ref(false);
-const error = ref(null);
+const state = reactive({
+  responseData: null,
+});
 
-const fetchData = async () => {
-  isLoading.value = true;
+onMounted(async () => {
   try {
     const response = await axios.get(
-      "https://api.rawg.io/api/platforms?key=bb66399c2b3b43f1b33263d6135fa4ba"
+      "https://kitsu.io/api/edge/trending/anime?limit=10"
     );
-    responseData.value = response.data.results;
-  } catch (e) {
-    error.value = e.message;
-  } finally {
-    isLoading.value = false;
+    state.responseData = response.data;
+    console.log(state.responseData);
+  } catch (error) {
+    console.error(error);
   }
-};
-
-onMounted(fetchData);
+});
 </script>
 
 <style scoped>
