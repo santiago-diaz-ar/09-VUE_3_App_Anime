@@ -3,9 +3,9 @@
     <nav>
       <ul>
         <router-link :to="{ name: 'general' }">Informacion general</router-link>
-        <router-link to="/favoritos">Favoritos</router-link>
+        <!--    <router-link to="/favoritos">Favoritos</router-link> -->
         <router-link to="/acerca">Acerca de</router-link>
-        <router-link to="/sesion">Iniciar sesion</router-link>
+        <router-link to="/sesion">Modificar datos </router-link>
       </ul>
     </nav>
   </header>

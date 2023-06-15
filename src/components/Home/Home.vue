@@ -1,6 +1,10 @@
 <template>
   <div class="contenedor">
     <div p v-for="a in animes" :key="a" class="card">
+      <!--   <button onClick="{handleFavorite}" className="{s.corazon}">❤️</button>
+
+      <button onClick="{handleFavorite}" className="{s.corazon}">🤍</button>
+ -->
       <router-link
         :to="{ name: 'detalle', params: { id: JSON.stringify(a) } }"
         >{{ a.name }}</router-link
@@ -12,6 +16,7 @@
 
 <script>
 import prueba from "../Helpers/animedata";
+
 export default {
   async mounted() {
     this.animes = await prueba();
@@ -21,6 +26,7 @@ export default {
       animes: [],
     };
   },
+
   //ya no es necesario el methods aca por que me importa la funcion desde otro archivo
   /*  methods: {
     getAnime: async function () {

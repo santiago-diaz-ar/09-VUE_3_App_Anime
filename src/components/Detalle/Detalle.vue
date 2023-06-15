@@ -20,17 +20,19 @@ export default {
 <style scoped>
 .contenedor {
   text-align: center;
+  border: 2px solid gray;
+  margin: 10px;
+  border-radius: 10px;
 }
 .card {
   text-align: center;
-
   margin: 20px;
   border-radius: 5px;
   background-color: black;
   color: white;
 }
 img {
-  width: 230px;
+  width: 330px;
   height: 250px;
   object-fit: cover;
   border-radius: 2px;
