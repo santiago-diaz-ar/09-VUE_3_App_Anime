@@ -5,7 +5,7 @@
         :to="{ name: 'detalle', params: { id: JSON.stringify(a) } }"
         >{{ a.name }}</router-link
       >
-      <img :src="a.image" alt="image" />
+      <!--      <img :src="a.image" alt="image" /> -->
     </div>
   </div>
 </template>

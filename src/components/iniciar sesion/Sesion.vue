@@ -1,32 +1,47 @@
 <template>
-  <div>
-    <input type="text" v-model="store.state.usuario" placeholder="Usuario" />
+  <form @submit="handleSubmit">
     <input
-      type="password"
-      v-model="store.state.contraseña"
-      placeholder="Contraseña"
+      v-model="correo"
+      type="email"
+      placeholder="Correo electrónico"
+      required
     />
-    <button @click="login">Iniciar sesión</button>
-  </div>
+    <input
+      v-model="contrasena"
+      type="password"
+      placeholder="Contraseña"
+      required
+    />
+    <button type="submit">Iniciar sesión</button>
+  </form>
 </template>
 
 <script>
-import { useStore } from "../../store/Store";
+import { useStore } from "vuex";
+import authState from "../../autenticacion/autenticacion";
 
 export default {
   setup() {
     const store = useStore();
 
-    const login = () => {
-      const { usuario, contraseña } = store.state;
-      // Realizar lógica de autenticación o cualquier acción necesaria
-      console.log("Usuario:", usuario);
-      console.log("Contraseña:", contraseña);
+    const correo = "example@example.com";
+    const contrasena = "contrasena123";
+
+    const handleSubmit = (event) => {
+      event.preventDefault();
+
+      // Llama a la mutación para actualizar el correo y la contraseña en la store
+      store.commit("setCorreo", correo);
+      store.commit("setContrasena", contrasena);
+
+      authState.user.correo = correo;
+      authState.isAuthenticated = true;
     };
 
     return {
-      store,
-      login,
+      correo,
+      contrasena,
+      handleSubmit,
     };
   },
 };

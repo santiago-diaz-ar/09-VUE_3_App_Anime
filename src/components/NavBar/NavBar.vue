@@ -7,38 +7,34 @@
         <router-link :to="{ name: 'acerca' }">Acerca de</router-link>
 
         <div>
-          <p v-if="showText" class="condicion">
-            <router-link to="/sesion">Iniciar sesion </router-link>
+          <p v-if="authState.isAuthenticated" class="condicion">
+            <router-link to="/sesion">{{ authState.user.correo }}</router-link>
           </p>
           <p v-else>
-            <router-link to="/sesion">Javier santiago diaz arcila </router-link>
+            <router-link to="/sesion">Iniciar sesion </router-link>
           </p>
         </div>
       </ul>
     </nav>
   </header>
-  <main></main>
 </template>
 
 <script>
-import { ref } from "vue";
+import authState from "../../autenticacion/autenticacion";
+
 export default {
   setup() {
-    const showText = ref(true);
-
-    const toggleText = () => {
-      showText.value = !showText.value;
-    };
-
     return {
-      showText,
-      toggleText,
+      authState,
     };
   },
 };
 </script>
 <style scoped>
 /* Estilos de la barra de navegación */
+.render {
+  border: 2px solid red;
+}
 nav {
   background-color: #f2f2f2;
   border-radius: 10px;
@@ -64,7 +60,5 @@ a {
   text-decoration: none;
   color: #333;
   font-weight: bold;
-}
-.condicion {
 }
 </style>

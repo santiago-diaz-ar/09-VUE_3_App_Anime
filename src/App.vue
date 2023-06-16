@@ -18,12 +18,10 @@
 import Home from "./components/Home/Home.vue";
 import Nav from "./components/NavBar/NavBar.vue";
 import prueba from "./components/Helpers/animedata.js";
-import { provideStore } from "./store/Store";
 
 export default {
   name: "App",
   async mounted() {
-    provideStore();
     if (this.animes == 0) {
       this.animes = await prueba();
     }

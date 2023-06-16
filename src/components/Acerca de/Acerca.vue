@@ -22,16 +22,22 @@
           construir algo grandioso juntos!
         </p>
       </div>
-      <div class="col">
-        <img :src="imagen" alt="" class="img" />
-      </div>
+      <div class="col"><img :src="imagen" alt="" class="img" /></div>
     </div>
   </div>
 </template>
 
-<script setup>
+<script>
 import imagen from "../../assets/uno.jpg";
 import "bootstrap/dist/css/bootstrap.css";
+
+export default {
+  setup() {
+    return {
+      imagen,
+    };
+  },
+};
 </script>
 
 <style scoped>

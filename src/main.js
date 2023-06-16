@@ -1,12 +1,13 @@
 import { createApp } from "vue";
 import App from "./App.vue";
 import { createRouter, createWebHistory } from "vue-router";
-import { provideStore } from "./store/Store";
 
 import Home from "./components/Home/Home.vue";
 import Acerca from "./components/Acerca de/Acerca.vue";
 import Sesion from "./components/iniciar sesion/Sesion.vue";
 import Detalle from "./components/Detalle/Detalle.vue";
+
+import store from "./store/Store.js";
 
 const router = createRouter({
   history: createWebHistory(),
@@ -20,5 +21,6 @@ const router = createRouter({
 
 const app = createApp(App);
 app.use(router);
-provideStore();
+app.use(store);
+
 app.mount("#app");
