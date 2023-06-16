@@ -1,6 +1,6 @@
 const getAnime = async () => {
   let animeArray = await fetch(
-    "https://kitsu.io/api/edge/trending/anime?limit=8"
+    "https://kitsu.io/api/edge/trending/anime?limit=20"
   ).then((res) => res.json());
 
   let animeObj = [];

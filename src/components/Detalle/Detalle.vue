@@ -23,6 +23,7 @@ export default {
   border: 2px solid gray;
   margin: 10px;
   border-radius: 10px;
+  margin-top: 35px;
 }
 .card {
   text-align: center;
