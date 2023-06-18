@@ -2,18 +2,18 @@
   <header>
     <nav>
       <ul>
-        <router-link
-          :to="{ name: 'general' }"
-          class="nav-link"
-          :class="{ active: isActive('/') }"
-          >Informacion general</router-link
-        >
         <!--    <router-link to="/favoritos">Favoritos</router-link> -->
         <router-link
           :to="{ name: 'acerca' }"
           class="nav-link"
           :class="{ active: isActive('/acerca') }"
           >Acerca de</router-link
+        >
+        <router-link
+          :to="{ name: 'general' }"
+          class="nav-link"
+          :class="{ active: isActive('/') }"
+          >Informacion general</router-link
         >
 
         <div v-if="authState.isAuthenticated">
@@ -89,6 +89,9 @@ a {
 .nav-link {
   color: #000;
   margin-right: 10px;
+
+  width: 22rem;
+  border-radius: 10em;
 }
 .nav-link.active {
   color: #f00; /* Color activo */

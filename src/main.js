@@ -1,7 +1,8 @@
 import { createApp } from "vue";
-import App from "./App.vue";
+import cors from "cors";
 import { createRouter, createWebHistory } from "vue-router";
 
+import App from "./App.vue";
 import Home from "./components/Home/Home.vue";
 import Acerca from "./components/Acerca de/Acerca.vue";
 import Sesion from "./components/iniciar sesion/Sesion.vue";
@@ -20,7 +21,9 @@ const router = createRouter({
 });
 
 const app = createApp(App);
-app.use(router);
-app.use(store);
 
+app.use(router);
+
+app.use(store);
+app.use(cors);
 app.mount("#app");

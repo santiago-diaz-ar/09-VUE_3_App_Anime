@@ -1,17 +1,23 @@
 <template>
-  <div class="contenedor">
+  <div class="container-fluid vh-100 border border-danger border-2">
     <br />
-    <div class="card">{{ anime.name }}</div>
-    <img :src="anime.image" alt="" />
-    <div>{{ anime.description }}</div>
+    <div class="row">
+      <div class="col h-100 border border-success border-2">
+        <h2 class="text-center">{{ anime.name }}</h2>
+        <div class="text-center">{{ anime.description }}</div>
+      </div>
+      <img :src="anime.image" alt="" class="col" />
+    </div>
   </div>
 </template>
 
 <script>
+import { useRoute } from "vue-router";
 export default {
-  data() {
+  setup() {
+    const route = useRoute();
     return {
-      anime: JSON.parse(this.$route.params.id),
+      anime: JSON.parse(route.params.id),
     };
   },
 };

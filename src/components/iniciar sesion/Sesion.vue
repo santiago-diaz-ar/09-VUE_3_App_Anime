@@ -70,7 +70,4 @@ export default {
 .boton {
   border-radius: 10px;
 }
-.boton:hover {
-  background-color: red;
-}
 </style>
