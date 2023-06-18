@@ -1,4 +1,7 @@
 <template>
+  <div class="containerSearch">
+    <Search :data="$root.animes" />
+  </div>
   <div class="contenedor">
     <div p v-for="a in $root.animes" :key="a" class="card">
       <router-link
@@ -8,13 +11,20 @@
         <div>
           {{ a.name }}
         </div>
-        <img :src="a.image" alt="image" />
+        <!-- <img :src="a.image" alt="image" /> -->
       </router-link>
     </div>
   </div>
 </template>
 
-<script></script>
+<script>
+import Search from "../Search/Search.vue";
+export default {
+  components: {
+    Search,
+  },
+};
+</script>
 
 <style scoped>
 .contenedor {
@@ -40,5 +50,8 @@ img {
   border: 2px solid black;
   white-space: pre-wrap;
   color: white;
+}
+.containerSearch {
+  text-align: center;
 }
 </style>

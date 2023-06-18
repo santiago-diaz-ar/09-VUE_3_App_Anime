@@ -7,6 +7,7 @@
 import { ref, onMounted } from "vue";
 import Nav from "./components/NavBar/NavBar.vue";
 import prueba from "./components/Helpers/animedata.js";
+import Search from "./components/Search/Search.vue";
 
 export default {
   //vue 2
@@ -29,6 +30,7 @@ export default {
   name: "App",
   components: {
     Nav,
+    Search,
   },
   setup() {
     const animes = ref([]);
@@ -37,7 +39,6 @@ export default {
         animes.value = await prueba();
       }
     });
-
     return {
       animes,
     };
