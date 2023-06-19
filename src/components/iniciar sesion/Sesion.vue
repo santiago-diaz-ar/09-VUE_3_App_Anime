@@ -1,40 +1,58 @@
 <template>
-  <form @submit="handleSubmit" class="text-center vh-100">
-    <br /><br />
-    <h6>Escribe cualquier correo y cualquier contraseña</h6>
-    <h6>para visualizar cambios</h6>
-    <br /><br />
-    <input
-      :disabled="isButtonDisabled"
-      v-model="correo"
-      type="email"
-      placeholder="Correo electrónico"
-      required
-    />
-    <br />
-    <br />
-    <input
-      :disabled="isButtonDisabled"
-      v-model="contrasena"
-      type="password"
-      placeholder="Contraseña"
-      required
-    />
-    <br /><br />
+  <div class="ocho" v-if="vista.sentencia">
+    <!--     <Form /> -->
+    <Form :data="vista" />
+  </div>
+  <div v-else>
+    <form @submit="handleSubmit" class="text-center vh-100">
+      <br /><br />
+      <h6>Escribe cualquier correo y cualquier contraseña</h6>
+      <h6>para visualizar cambios</h6>
+      <br /><br />
+      <input
+        :disabled="isButtonDisabled"
+        v-model="correo"
+        type="email"
+        placeholder="Correo electrónico"
+        required
+      />
+      <br />
+      <br />
+      <input
+        :disabled="isButtonDisabled"
+        v-model="contrasena"
+        type="password"
+        placeholder="Contraseña"
+        required
+      />
+      <br /><br />
 
-    <button type="submit" :disabled="isButtonDisabled" class="boton">
-      Iniciar sesión
-    </button>
-  </form>
+      <button type="submit" :disabled="isButtonDisabled" class="boton">
+        Iniciar sesión
+      </button>
+      <br />
+      <br />
+      <button @click="vista.sentencia = true">Crear Usuario</button>
+    </form>
+  </div>
 </template>
 
 <script>
 import { useStore } from "vuex";
-import { ref } from "vue";
-import authState from "../../autenticacion/autenticacion";
+import { ref, reactive } from "vue";
+import authState from "../../autenticacion/autenticacion.js";
+
+import Form from "../formUser/Form.vue";
 
 export default {
+  components: {
+    Form,
+  },
   setup() {
+    const vista = reactive({
+      sentencia: false,
+    });
+
     const isButtonDisabled = ref(false);
     const store = useStore();
 
@@ -57,6 +75,7 @@ export default {
       contrasena,
       handleSubmit,
       isButtonDisabled,
+      vista,
     };
   },
 };
@@ -69,5 +88,8 @@ export default {
 }
 .boton {
   border-radius: 10px;
+}
+.ocho {
+  border: 2px solid blue;
 }
 </style>
