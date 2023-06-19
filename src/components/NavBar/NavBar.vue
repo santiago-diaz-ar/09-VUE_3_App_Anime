@@ -67,6 +67,7 @@ nav {
   padding-top: 25px;
   padding-bottom: 15px;
   margin: 10px;
+  align-items: center;
 }
 
 ul {

@@ -1,9 +1,9 @@
 <template>
-  <div class="container-fluid vh-100 border border-danger border-2">
+  <div>
     <br />
     <div class="row">
-      <div class="col h-100 border border-success border-2">
-        <h2 class="text-center">{{ anime.name }}</h2>
+      <div class="col text-center">
+        <h2 class=" ">{{ anime.name }}</h2>
         <div class="text-center">{{ anime.description }}</div>
       </div>
       <img :src="anime.image" alt="" class="col" />
@@ -43,5 +43,6 @@ img {
   height: 250px;
   object-fit: cover;
   border-radius: 2px;
+  border-radius: 5rem;
 }
 </style>
