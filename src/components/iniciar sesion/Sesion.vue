@@ -4,6 +4,7 @@
     <Form :data="vista" />
   </div>
   <div v-else>
+    <h1>{{ dos }}</h1>
     <form @submit="handleSubmit" class="text-center vh-100">
       <br /><br />
       <h6>Escribe cualquier correo y cualquier contraseña</h6>
@@ -41,6 +42,7 @@
 import { useStore } from "vuex";
 import { ref, reactive } from "vue";
 import authState from "../../autenticacion/autenticacion.js";
+import dos from "../../autenticacion/authenticationForm.js";
 
 import Form from "../formUser/Form.vue";
 
@@ -62,12 +64,22 @@ export default {
     const handleSubmit = (event) => {
       event.preventDefault();
 
+      if (
+        (dos.correo === correo.value) &
+        (dos.contraseña === contrasena.value)
+      ) {
+        console.log(dos.contraseña);
+        store.commit("setCorreo", correo);
+        store.commit("setContrasena", contrasena);
+        isButtonDisabled.value = true;
+        authState.user.correo = correo;
+        authState.isAuthenticated = true;
+        return alert("INICIO DE SESION EXITOSO");
+      } else {
+        return alert("DATOS NO COINCIDES O USUARIO NO CREADO ");
+      }
+
       // Llama a la mutación para actualizar el correo y la contraseña en la store
-      store.commit("setCorreo", correo);
-      store.commit("setContrasena", contrasena);
-      isButtonDisabled.value = true;
-      authState.user.correo = correo;
-      authState.isAuthenticated = true;
     };
 
     return {
@@ -76,6 +88,7 @@ export default {
       handleSubmit,
       isButtonDisabled,
       vista,
+      dos,
     };
   },
 };
