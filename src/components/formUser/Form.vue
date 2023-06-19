@@ -1,18 +1,21 @@
 <template>
   <div class="container">
+    <br />
     <form @submit="handleSubmit">
-      <div>
-        <input v-model="form.correo" type="email" placeholder="correo" />
-        <br />
-        <br />
-        <input
-          v-model="form.contraseña"
-          type="text"
-          name=""
-          id=""
-          placeholder="contraseña"
-        />
-      </div>
+      <input
+        v-model="form.correo"
+        type="email"
+        placeholder="correo electronico"
+      />
+      <br />
+      <br />
+      <input
+        v-model="form.contraseña"
+        type="text"
+        name=""
+        id=""
+        placeholder="contraseña"
+      />
 
       <br />
       <br />
@@ -29,13 +32,12 @@
       </div>
 
       <br />
-      <br />
-      <button type="submit">Crear Usuario</button>
+      <button type="submit" class="j">Crear Usuario</button>
 
       <br />
       <br />
 
-      <button @click="volver">volver a iniciar sesion</button>
+      <button @click="volver" class="j">volver a iniciar sesion</button>
     </form>
   </div>
 </template>
@@ -94,5 +96,8 @@ export default {
 }
 .error {
   color: red;
+}
+.j {
+  border-radius: 10px;
 }
 </style>

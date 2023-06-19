@@ -4,11 +4,10 @@
     <Form :data="vista" />
   </div>
   <div v-else>
-    <h1>{{ dos }}</h1>
+    <br />/
     <form @submit="handleSubmit" class="text-center vh-100">
       <br /><br />
-      <h6>Escribe cualquier correo y cualquier contraseña</h6>
-      <h6>para visualizar cambios</h6>
+
       <br /><br />
       <input
         :disabled="isButtonDisabled"
@@ -33,7 +32,7 @@
       </button>
       <br />
       <br />
-      <button @click="vista.sentencia = true">Crear Usuario</button>
+      <button @click="vista.sentencia = true" class="j">Crear Usuario</button>
     </form>
   </div>
 </template>
@@ -103,6 +102,10 @@ export default {
   border-radius: 10px;
 }
 .ocho {
-  border: 2px solid blue;
+  margin-top: 7rem;
+  text-align: center;
+}
+.j {
+  border-radius: 10px;
 }
 </style>
