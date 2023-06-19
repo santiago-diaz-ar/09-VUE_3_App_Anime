@@ -11,7 +11,7 @@
         <div>
           {{ a.name }}
         </div>
-        <!-- <img :src="a.image" alt="image" /> -->
+        <img :src="a.image" alt="image" />
       </router-link>
     </div>
   </div>
